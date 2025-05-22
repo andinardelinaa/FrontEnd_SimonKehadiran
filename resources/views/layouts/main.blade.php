@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background: linear-gradient(to right, #e6fff5, #d0f5eb);
+      background: linear-gradient(to right,rgb(118, 240, 100),rgb(222, 223, 213));
     }
     <style>
 /* Overlay */
@@ -51,12 +51,12 @@
 
   <!-- Sidebar -->
   <aside class="w-64 min-h-screen bg-white shadow-lg p-6 fixed left-0 top-0">
-    <h1 class="text-2xl font-bold text-emerald-600 mb-10">🟢 DASHBOARD</h1>
+    <h1 class="text-2xl font-bold text-emerald-600 mb-10">🟢 MYDASH</h1>
     <nav class="flex flex-col gap-4">
-      <a href="/dashboard" class="text-emerald-700 font-semibold hover:text-emerald-500">🏠 Dashboard</a>
-      <a href="/user" class="text-gray-600 hover:text-emerald-500">📁 User</a>
-      <a href="/mahasiswa" class="text-gray-600 hover:text-emerald-500">📁 Mahasiswa</a>
-      <a href="/kelas" class="text-gray-600 hover:text-emerald-500">📁 Kelas</a>
+      <a href="/dashboard" class="text-emerald-700 font-semibold hover:text-emerald-500 no-underline">🏠 Dashboard</a>
+      <a href="/user" class="text-gray-600 hover:text-emerald-500 no-underline">📁 User</a>
+      <a href="/mahasiswa" class="text-gray-600 hover:text-emerald-500 no-underline">📁 Mahasiswa</a>
+      <a href="/kelas" class="text-gray-600 hover:text-emerald-500 no-underline">📁 Kelas</a>
 
 
     </nav>

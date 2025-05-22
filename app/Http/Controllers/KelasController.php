@@ -46,6 +46,7 @@ class KelasController extends Controller
     }
 
     return redirect('/kelas')->with('success', 'Data berhasil ditambahkan!');
+
 }
 
 public function show($id)
@@ -58,26 +59,34 @@ public function show($id)
     $response = Http::get("http://localhost:8080/kelas/$kode_kelas");
 
     if ($response->successful()) {
-        $data = $response->json(); // atau ['data'] kalau ada pembungkus
-        return view('edit_kelas', compact('data'));
+        $data = $response->json();
+
+        if (!empty($data)) {
+            $kelas = $data; // langsung assign, karena bukan array di dalam array
+            return view('edit_kelas', compact('kelas', 'kode_kelas'));
+        }
     }
 
-    return redirect()->route('kelas.index')->with('error', 'Data tidak ditemukan');
+    return back()->with('error', 'Gagal mengambil data kelas');
 }
 
-public function update(Request $request, $kode_kelas)
+
+
+
+public function update(Request $request, $kelas)
 {
     $request->validate([
         'kode_kelas' => 'required',
         'nama_kelas' => 'required',
     ]);
 
-    $response = Http::asForm()->put("http://localhost:8080/kelas/$kode_kelas", [
+    $response = Http::put("http://localhost:8080/kelas/$kelas", [
         'kode_kelas' => $request->kode_kelas,
         'nama_kelas' => $request->nama_kelas,
     ]);
 
     if ($response->successful()) {
+        // dd($kode_kelas); 
         return redirect()->route('kelas.index')->with('success', 'Data berhasil diperbarui');
     }
 

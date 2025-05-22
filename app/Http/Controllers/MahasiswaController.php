@@ -63,19 +63,33 @@ public function show($id)
     // 
 }
 
-   public function edit($npm)
+   public function edit($mahasiswa)
 {
-     $kelass = Http::get('http://localhost:8080/kelas')->json();
-    $userss = Http::get('http://localhost:8080/user')->json();
+    $response = Http::get("http://localhost:8080/mahasiswa/$mahasiswa");
+    $kelas = Http::get('http://localhost:8080/kelas')->json();
+    $user = Http::get('http://localhost:8080/user')->json();
 
-    $response = Http::get("http://localhost:8080/mahasiswa/$npm");
+    if ($response->successful() && !empty($response[0])) {
+        $mahasiswa = $response[0];
 
-    if ($response->successful()) {
-        $data = $response->json(); // atau ['data'] kalau ada pembungkus
-        return view('edit_mahasiswa', compact('data'));
+        foreach ($kelas as $k) {
+            if ($k['kode_kelas'] === $mahasiswa['kode_kelas']) {
+                $mahasiswa['kode_kelas'] = $k['kode_kelas'];
+                break;
+            }
+        }
+
+        foreach ($user as $u) {
+            if ($u['id_user'] === $mahasiswa['id_user']) {
+                $mahasiswa['id_user'] = $u['id_user'];
+                break;
+            }
+        }
+
+        return view('edit_mahasiswa', compact('mahasiswa', 'kelas', 'user'));
+    } else {
+        return back()->with('error', 'Data mahasiswa tidak ditemukan.');
     }
-
-    return redirect()->route('mahasiswa.index')->with('error', 'Data tidak ditemukan');
 }
 
 public function update(Request $request, $npm)

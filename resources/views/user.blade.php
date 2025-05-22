@@ -31,7 +31,7 @@
         <td>{{ $data['level'] }}</td>
     <td>
     <div class="d-flex gap-2">
-        <a href="{{ route('user.edit', $data['id_user']) }}" class="btn btn-primary btn-sm">Edit</a>
+<a href="{{ route('kelas.edit', $data['kode_kelas']) }}" class="btn btn-primary btn-sm">Edit</a>
 
         <form action="{{ route('user.destroy', $data['id_user']) }}" method="POST" onsubmit="return confirm('Yakin mau hapus data ini?')">
             @csrf

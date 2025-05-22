@@ -15,5 +15,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::resource('user', UserController::class);
-Route::resource('kelas', KelasController::class);
+Route::resource('kelas', KelasController::class)->parameters([
+    'kelas' => 'kode_kelas'
+]);
 Route::resource('mahasiswa', MahasiswaController::class);
