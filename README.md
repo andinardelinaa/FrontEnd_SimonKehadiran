@@ -81,6 +81,9 @@ menggunakan laravel 10
 composer create-project laravel/laravel:^10 FE-KRS
 cd laravel-FE-KRS
 ```
+```bash
+composer install
+```
 
 karena menggunakan laravel versi 12 maka perlu dilakukan migrasi:
 ```bash
