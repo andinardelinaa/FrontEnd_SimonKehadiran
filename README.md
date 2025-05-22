@@ -69,7 +69,7 @@ C. Mahasiswa
 - PUT mahasiswa : http://localhost:8080/mahasiswa/{npm}
 - DELETE mahasiswa : http://localhost:8080/mahasiswa/{npm}
 
-⚙️ Buat Project Laravel 
+## ⚙️ Buat Project Laravel 
 
 ``` bash
 composer create-project laravel/laravel FE_kehadiran
