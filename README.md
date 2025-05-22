@@ -1,61 +1,188 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌐 SISTEM MONITORING KEHADIRAN
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel Version](https://img.shields.io/badge/Laravel-12.x-red)  
 
-## About Laravel
+👩‍💻 **Andin Ardelina Saputri**  
+Informatics Engineering — Politeknik Negeri Cilacap  
+GitHub: [@andinardelina](https://github.com/andinardelinaa)  
+LinkedIn: [linkedin.com/in/andinardelina](https://linkedin.com/in/andinardelina)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📚 Deskripsi Proyek
+Sistem Monitoring Kehadiran ini menggabungkan backend yang dibangun menggunakan CodeIgniter dan frontend menggunakan Laravel 12. Backend menyediakan API untuk operasi CRUD data User, Kelas, dan Mahasiswa, sedangkan frontend bertugas mengonsumsi API tersebut untuk tampilan dan interaksi pengguna.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🧬 Setup Instructions (Clone & Install)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1️⃣ Clone the Repository Backend Kelompok 4
+Clone repository backend dari GitHub:
 
-## Learning Laravel
+```bash
+git clone https://github.com/NalindraDT/Simon-kehadiran.git
+cd Simon-kehadiran
+```
+### 2️⃣ Install dependensi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Install semua dependensi yang dibutuhkan menggunakan Composer:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🧪 Run Server dalam Backend
 
-## Laravel Sponsors
+```bash
+php spark serve 
+```
+Server akan berjalan di:
+🔗 http://127.0.0.1:8080.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🧩 Import Database
+🔗 Link Repository Database
+https://github.com/JiRizkyCahyusna/DBE_Simon
 
-### Premium Partners
+Langkah Import Database:
+1. Download file .sql dari repository tersebut.
+2. Buka phpMyAdmin atau tools database favoritmu.
+3. Pilih database tujuan, lalu klik tab Import.
+4. Upload file .sql yang sudah didownload.
+5. Klik tombol Go untuk memulai proses import.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 🧬 Cek Endpoint API menggunakan postman
 
-## Contributing
+A. User
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- GET user : http://localhost:8080/user
+- POST user : http://localhost:8080/user
+- PUT user : http://localhost:8080/user/{id_user}
+- DELETE user : http://localhost:8080/user/{id_user}
 
-## Code of Conduct
+B. Kelas
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- GET kelas : http://localhost:8080/kelas
+- POST kelas : http://localhost:8080/kelas
+- PUT kelas : http://localhost:8080/kelas/{id_kelas}
+- DELETE kelas : http://localhost:8080/kelas/{id_kelas}
 
-## Security Vulnerabilities
+C. Mahasiswa
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- GET mahasiswa : http://localhost:8080/mahasiswa
+- POST mahasiswa : http://localhost:8080/mahasiswa
+- PUT mahasiswa : http://localhost:8080/mahasiswa/{npm}
+- DELETE mahasiswa : http://localhost:8080/mahasiswa/{npm}
 
-## License
+⚙️ Buat Project Laravel 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+``` bash
+composer create-project laravel/laravel FE_kehadiran
+cd laravel-FE_kehadiran
+```
+karena menggunakan laravel versi 12 maka perlu dilakukan migrasi:
+```bash
+php artisan migrate
+```
+menjalankan server Front-End dengan perintah :
+
+```bash
+php artisan serve
+```
+Server berjalan di:
+🔗 http://127.0.0.1:8000
+
+## 🎨 Membuat Dashboard Frontend dengan Tailwind CSS
+1. Buat Layout Utama
+Buat file resources/views/layouts/main.blade.php dan isi dengan kode berikut:
+
+```bash
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #e6fff5, #d0f5eb);
+    }
+    <style>
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    z-index: 1000;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Popup Box */
+.popup {
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+}
+.popup .close {
+    position: absolute;
+    top: 10px; right: 15px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #333;
+}
+</style>
+
+  </style>
+</head>
+<body class="flex font-sans text-gray-800">
+
+  <!-- Sidebar -->
+  <aside class="w-64 min-h-screen bg-white shadow-lg p-6 fixed left-0 top-0">
+    <h1 class="text-2xl font-bold text-emerald-600 mb-10">🟢 DASHBOARD</h1>
+    <nav class="flex flex-col gap-4">
+      <a href="/dashboard" class="text-emerald-700 font-semibold hover:text-emerald-500">🏠 Dashboard</a>
+      <a href="/user" class="text-gray-600 hover:text-emerald-500">📁 User</a>
+      <a href="/mahasiswa" class="text-gray-600 hover:text-emerald-500">📁 Mahasiswa</a>
+      <a href="/kelas" class="text-gray-600 hover:text-emerald-500">📁 Kelas</a>
+
+
+    </nav>
+    
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-64 w-full p-10">
+    <!-- Hero Section -->
+      @yield('content')
+  </main>
+
+</body>
+</html>
+```
+
+## membuat routes dalam file web.php
+
+```bash
+Route::get('/', function () {
+    return view('layouts.dashboard');
+});
+```
+
+```bash
+Route::get('/dashboard', [DashboardController::class, 'index']);
+```
+
+## membuat controller 
+```bash
+php artisan make:controller UserController
+```
+selanjutnya membuat tampilan frontend menggunakan Laravel yang dapat melakukan **CRUD** dengan mengonsumsi API di atas.
+
+
