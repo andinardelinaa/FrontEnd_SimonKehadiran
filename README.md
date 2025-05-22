@@ -75,6 +75,13 @@ C. Mahasiswa
 composer create-project laravel/laravel FE_kehadiran
 cd laravel-FE_kehadiran
 ```
+menggunakan laravel 10 
+
+```bash
+composer create-project laravel/laravel:^10 FE-KRS
+cd laravel-FE-KRS
+```
+
 karena menggunakan laravel versi 12 maka perlu dilakukan migrasi:
 ```bash
 php artisan migrate
