@@ -167,8 +167,8 @@ Buat file resources/views/layouts/main.blade.php dan isi dengan kode berikut:
 </html>
 ```
 
-## membuat routes dalam file web.php
-
+## Membuat Routes dalam File web.php
+Langkah awal adalah mendefinisikan route yang akan mengarahkan pengguna ke halaman dashboard dan halaman CRUD user:
 ```bash
 Route::get('/', function () {
     return view('layouts.dashboard');
@@ -179,7 +179,8 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index']);
 ```
 
-## membuat controller 
+## Membuat Controller
+Untuk menangani logika dari fitur CRUD user, dibuat sebuah controller baru bernama UserController menggunakan perintah Artisan berikut:
 ```bash
 php artisan make:controller UserController
 ```
