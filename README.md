@@ -26,6 +26,12 @@ Install semua dependensi yang dibutuhkan menggunakan Composer:
 ```bash
 composer install
 ```
+ ## konfigurasi file .env
+ untuk database, password, session file.
+ 
+ ```bash
+php artisan key:generate
+```
 
 ### 🧪 Run Server dalam Backend
 
