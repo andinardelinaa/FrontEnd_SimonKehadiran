@@ -272,4 +272,22 @@ Untuk menangani logika dari fitur CRUD user, dibuat sebuah controller baru berna
 php artisan make:controller UserController
 ```
 
+## Cara push di Github
+1. git init
+2. git remote add origin https://github.com/username/nama-repo.git
+3. git add .
+4. git commit -m "First commit"
+5. git branch -M main
+git push -u origin main
+6. git push origin main
+
+kalo mau nambah
+7.git pull origin main --rebase
+8. git push
+
+
+
+
+
+
 
