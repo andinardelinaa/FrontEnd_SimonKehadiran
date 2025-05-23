@@ -5,23 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 use Illuminate\Support\Facades\Http;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
 {
+    $search = $request->query('search');
+
     $response = Http::get('http://localhost:8080/user');
 
-    // Cek status dan ambil datanya
     if ($response->successful()) {
-        $datas = $response->json(); // ubah JSON ke array
+        $datas = $response->json();
+
+        if ($search) {
+            $datas = array_filter($datas, function($item) use ($search) {
+                return stripos($item['username'], $search) !== false;
+            });
+        }
     } else {
-        $datas = []; // atau kasih pesan error
+        $datas = [];
     }
 
     return view('user', ['datas' => $datas]);
 }
+
+
 
     public function create()
     {
@@ -101,6 +112,24 @@ public function update(Request $request, $id_user)
 
     return back()->with('error', 'Gagal Menghapus Data');
 }
+
+public function exportPDF()
+{
+    $response = Http::get('http://localhost:8080/user');
+
+    if ($response->successful()) {
+        $datas = collect($response->json('data')); // atau $response->json() kalau datanya di root
+        dd($response->json());
+        
+        $pdf = Pdf::loadHTML('cetak_user', compact('datas'));
+        return $pdf->download('text.pdf');
+    } else {
+        return back()->with('error', 'Gagal mengambil data untuk PDF');
+    }
+}
+
+
+
 
 
 }
