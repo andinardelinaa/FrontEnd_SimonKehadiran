@@ -12,28 +12,32 @@ Sistem Monitoring Kehadiran ini menggabungkan backend yang dibangun menggunakan 
 
 ## 🧬 Setup Instructions (Clone & Install)
 
-### 1️⃣ Clone the Repository Backend Kelompok 4
+### 1️. Clone the Repository Backend Kelompok 4
 Clone repository backend dari GitHub:
 
 ```bash
 git clone https://github.com/NalindraDT/Simon-kehadiran.git
 cd Simon-kehadiran
 ```
-### 2️⃣ Install dependensi
+### 2️. Install dependensi
 
 Install semua dependensi yang dibutuhkan menggunakan Composer:
 
 ```bash
 composer install
 ```
- ## konfigurasi file .env
+ ## 3. konfigurasi file .env
  untuk database, password, session file.
+ 
+ ```bash
+cp .env.example .env
+```
  
  ```bash
 php artisan key:generate
 ```
 
-### 🧪 Run Server dalam Backend
+### 4.  Run Server dalam Backend
 
 ```bash
 php spark serve 
@@ -41,7 +45,7 @@ php spark serve
 Server akan berjalan di:
 🔗 http://127.0.0.1:8080.
 
-### 🧩 Import Database
+### 5.  Import Database
 🔗 Link Repository Database
 https://github.com/JiRizkyCahyusna/DBE_Simon
 
@@ -52,7 +56,7 @@ Langkah Import Database:
 4. Upload file .sql yang sudah didownload.
 5. Klik tombol Go untuk memulai proses import.
 
-### 🧬 Cek Endpoint API menggunakan postman
+### 6. Cek Endpoint API menggunakan postman
 
 A. User
 
@@ -75,13 +79,13 @@ C. Mahasiswa
 - PUT mahasiswa : http://localhost:8080/mahasiswa/{npm}
 - DELETE mahasiswa : http://localhost:8080/mahasiswa/{npm}
 
-## ⚙️ Buat Project Laravel di Laragon
+## 7.  Buat Project Laravel di Laragon
 
 ``` bash
 composer create-project laravel/laravel FE_kehadiran
 cd laravel-FE_kehadiran
 ```
-menggunakan laravel 10 
+apabila menggunakan laravel 10 gunakan :
 
 ```bash
 composer create-project laravel/laravel:^10 FE-KRS
@@ -90,6 +94,14 @@ cd laravel-FE-KRS
 ```bash
 composer install
 ```
+## 8. copy file env
+
+```bash
+cp .env.example .env
+```
+APP_NAME=Laravel
+APP_URL=http://localhost:8000
+SESSION_DRIVER=file
 
 karena menggunakan laravel versi 12 maka perlu dilakukan migrasi:
 ```bash
